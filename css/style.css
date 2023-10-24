@@ -1,0 +1,584 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+nav{
+  /* position: fixed; */
+  z-index: 99;
+  width: 100%;  
+  background: white;
+}
+
+.links {
+    background: orange;
+    width: 60%;
+    border-radius: 50px 0px 0px 50px;   
+    padding: 0px 0px 0px 100px; 
+    color: black;
+}
+
+nav .wrapper{
+  position: relative;
+  height: 70px;
+  line-height: 70px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrapper .logo img{
+  color: #000000;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 155%;
+  text-decoration: none;
+  transition: 1s;
+}
+.wrapper .nav-links{
+  display: inline-flex;
+}
+.nav-links li{
+  list-style: none;
+}
+.nav-links li a{
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 9px 15px;
+  /* border: #f2f2f2; */
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+    border-bottom: 3px solid white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-links .mobile-item{
+  display: none;
+}
+.nav-links .drop-menu{
+  position: absolute;
+  background: white;
+  width: 180px;
+  line-height: 45px;
+  top: 85px;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+.nav-links li:hover .drop-menu,
+.nav-links li:hover .mega-box{
+  transition: all 0.3s ease;
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+}
+.drop-menu li a{
+  width: 100%;
+  display: block;
+  padding: 0 0 0 15px;
+  font-weight: 400;
+  border-radius: 0px;
+}
+
+.wrapper .btn{
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+.wrapper .btn.close-btn{
+  position: absolute;
+  right: 30px;
+  top: 10px;
+}
+
+.nav-links li .contato {
+    color: white;
+    background-color: black;
+    width: 150px;
+    border-radius: 10px;
+}
+
+
+
+@media screen and (max-width: 1110px) {
+  .wrapper .btn{
+    display: block;
+  }
+  .wrapper .nav-links{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    max-width: 350px;
+    top: 0;
+    left: -100%;
+    background: #242526;
+    display: block;
+    padding: 50px 10px;
+    line-height: 50px;
+    overflow-y: auto;
+    box-shadow: 0px 15px 15px rgba(0,0,0,0.18);
+    transition: all 0.3s ease;
+  }
+
+  .wrapper .logo img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 100%;
+    transition: 1s;
+  }
+
+  /* custom scroll bar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #242526;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #3A3B3C;
+  }
+  #menu-btn:checked ~ .nav-links{
+    left: 0%;
+  }
+  #menu-btn:checked ~ .btn.menu-btn{
+    display: none;
+  }
+  #close-btn:checked ~ .btn.menu-btn{
+    display: block;
+  }
+  .nav-links li{
+    margin: 15px 10px;
+  }
+  .nav-links li a{
+    padding: 0 20px;
+    display: block;
+    font-size: 20px;
+  }
+  .nav-links .drop-menu{
+    position: static;
+    opacity: 1;
+    top: 65px;
+    visibility: visible;
+    padding-left: 20px;
+    width: 100%;
+    max-height: 0px;
+    overflow: hidden;
+    box-shadow: none;
+    transition: all 0.3s ease;
+  }
+  #showDrop:checked ~ .drop-menu,
+  #showMega:checked ~ .mega-box{
+    max-height: 100%;
+  }
+  .nav-links .desktop-item{
+    display: none;
+  }
+  .nav-links .mobile-item{
+    display: block;
+    color: #f2f2f2;
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  .nav-links .mobile-item:hover{
+    background: #3A3B3C;
+  }
+  .drop-menu li{
+    margin: 0;
+  }
+  .drop-menu li a{
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  .mega-box{
+    position: static;
+    top: 65px;
+    opacity: 1;
+    visibility: visible;
+    padding: 0 20px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .mega-box .content{
+    box-shadow: none;
+    flex-direction: column;
+    padding: 20px 20px 0 20px;
+  }
+  .mega-box .content .row{
+    width: 100%;
+    margin-bottom: 15px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .mega-box .content .row:nth-child(1),
+  .mega-box .content .row:nth-child(2){
+    border-top: 0px;
+  }
+ 
+  .links {
+    width: 20%;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  .menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        
+  }
+ .img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+  }
+
+}
+
+
+@media (max-width: 480px)  {
+    .wrapper .logo img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20%;
+        transition: 1s;
+      }
+}
+
+nav input{
+  display: none;
+}
+
+.body-text{
+  background-image: url(https://e0.pxfuel.com/wallpapers/934/999/desktop-wallpaper-dark-blue-cool-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+    object-fit: scale-down;
+    /* filter: brightness(0.25) opacity(0.95);  */
+    /* filter: blur(5px); */
+    width: 100%;
+    margin-bottom: 5%;
+    /* height: 100vh; */
+    transition: 0.4s;
+    z-index: -1;
+}
+ .titu {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 12%;
+  width: 600px;
+  height: 300px;
+  transition: 5s;
+
+ }
+ .titu h1{
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  font-size: 60px;
+  transition: 5s;
+
+}
+.texto1 .texto{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+
+  margin-left: 16%;
+  line-height: 40px;
+  width: 600px;
+  transition: 5s;
+}
+
+@media (max-width:1000px) {
+  .titu {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -4%;
+    width: 600px;
+    height: 300px;
+    transition: 5s;
+   }
+
+   .titu h1{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -6%;
+    margin-top: 10%;
+    font-size: 50px;
+    transition: 5s;
+
+  }
+  .texto1 .texto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+  
+    margin-left: -2%;
+    line-height: 40px;
+    width: 600px;
+    transition: 5s;
+  }
+  
+  .escri {
+    /* height: 700px; */
+    max-width: 400px;
+  }
+  .li {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    /* max-width: 25%; */
+    transition: 2s;
+    height: 200px;
+    background-color: #3A3B3C;
+  }
+}
+
+
+@media (max-width:600px) {
+  .body-text{
+  background-image: url(https://e0.pxfuel.com/wallpapers/934/999/desktop-wallpaper-dark-blue-cool-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+    object-fit: scale-down;
+    /* filter: brightness(0.25) opacity(0.95);  */
+    /* filter: blur(5px); */
+    /* width: 150%; */
+    transition: 0.4s;
+    /* height: 100vh; */
+    z-index: -1;
+}
+
+.titu h1{
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -46%;
+  margin-top: 10%;
+  font-size: 30px;
+  transition: 5s;
+
+}
+
+.texto1 .texto{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+
+  margin-top: -10%;
+  margin-left: 5%;
+  line-height: 40px;
+  max-width: 350px;
+  transition: 5s;
+}
+
+.categorias {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140%;
+  height: 30%;
+  background: #050133;
+}
+
+.opcao {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  flex-direction: column;
+  background: #48484812;
+  width: 120%;
+  height: 50%;
+}
+
+
+}
+
+
+
+.detalhe {
+  width: 70%;
+  height: 40%;
+  background: #050133;
+
+  border-radius: 0px 20px 0px 0px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5%;
+}
+
+.prod {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25%;
+  margin-bottom: 10%;
+  margin-left: 10%;
+  color: white;
+}
+
+
+
+.categorias {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30%;
+  background: #050133;
+}
+
+.categorias h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-top: 5%;
+  margin-bottom: 18%;
+}
+
+
+
+.opcao {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  flex-direction: column;
+  background: #48484812;
+  width: 100%;
+  height: 50%;
+}
+
+.opcao .sua {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.li {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  width: 44%;
+  height: 200px;
+  background-color: #3A3B3C;
+}
+
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: orange;
+  border-radius: 5%;
+  margin-top: -11%;
+  margin-left: 60%;
+  width: 250px;
+  height: 330px;
+}
+
+.image img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140%;
+  height: 92%;
+  object-fit: cover;
+  background-size: cover;
+  border-radius: 6%;
+}
+
+.escri {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 35%;
+  text-decoration: none;
+  font-size: 12px;
+  margin-left: 50%;
+  margin-top: -18%;
+  line-height: 30px;
+  transform: 2s;
+}
+
+@media (max-width: 1100px) {
+  .li {
+    width: 30%;
+    
+  }
+
+  .escri {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    text-decoration: none;
+    font-size: 12px;
+    margin-left: 34%;
+    margin-top: -22%;
+    line-height: 30px;
+    transition: 2s;
+  }
+}
+
+@media (max-width: 800px) {
+  .li {
+    display: none;
+  }
+
+  .escri {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    margin-left: 25%;
+  }
+}
+
+@media (max-width: 600px) {
+  .escri {
+    max-width: 100%;
+  }
+}
